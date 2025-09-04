@@ -1,0 +1,46 @@
+=========================================
+SISTEMA DE RESERVA DE PASSAGENS AÉREAS
+=========================================
+
+Este programa permite ao usuário:
+- Comprar passagens aéreas              # Cadastro de nova reserva
+- Fazer check-in em reservas            # Atualiza o status da reserva
+- Consultar reservas existentes         # Exibe dados da reserva pelo código
+
+FUNCIONAMENTO:
+--------------
+- As reservas são salvas em um arquivo JSON chamado 'reservas.json'.   # Armazenamento permanente
+- Cada reserva possui: nome, destino, código único e status de check-in. # Dados principais da reserva
+- O sistema carrega as reservas do arquivo ao iniciar e salva sempre que há alteração. # Persistência automática
+
+PRINCIPAIS FUNÇÕES:
+-------------------
+- salvar_reservas(): Salva todas as reservas no arquivo JSON.          # Atualiza o arquivo com os dados atuais
+- comprar_passagem(): Cadastra uma nova reserva e gera um código único. # Recebe dados do usuário e cria reserva
+- fazer_checkin(): Marca o check-in de uma reserva existente.          # Atualiza o campo 'checkin' para True
+- consultar_reservas(): Mostra os dados de uma reserva pelo código.    # Busca e exibe informações da reserva
+
+SINTAXE IMPORTANTE:
+-------------------
+- import json: Importa a biblioteca para manipular arquivos JSON.      # Necessária para salvar/carregar dados
+- with open(...): Abre arquivos de forma segura.                       # Garante que o arquivo será fechado corretamente
+- json.dump(...): Salva dados em formato JSON.                         # Escreve no arquivo
+- json.load(...): Carrega dados do formato JSON.                       # Lê do arquivo
+- input(...): Recebe dados do usuário pelo terminal.                   # Interação com o usuário
+- while True: Cria o loop principal do sistema.                        # Mantém o programa rodando até o usuário sair
+
+ESTRUTURA DOS DADOS:
+--------------------
+- As reservas são armazenadas em um dicionário chamado 'reservas'.     # Estrutura principal do sistema
+- Cada chave do dicionário é o código da reserva.                      # Exemplo: "JOHSPO1"
+- Cada valor é outro dicionário com os dados da reserva.               # Contém nome, destino, código e checkin
+
+FLUXO DO SISTEMA:
+-----------------
+1. Mostra o menu principal.                                            # Interface de opções
+2. Executa a opção escolhida pelo usuário.                             # Chama a função correspondente
+3. Salva alterações imediatamente.                                     # Atualiza o arquivo JSON
+4. Repete até o usuário escolher "Sair".                               # Loop contínuo até encerramento
+
+-----------------------------------------
+Documentação comentada por Copilot 🧠💻
